@@ -21,16 +21,36 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
+    file = File.open(order_params[:file], 'r')
+    file_data = file.read.split("\n")
+    line_number = 0
+    file_data.each do |line|
+      if line_number != 0
+        line_data = line.split("\t")
+        merchant_params = {
+          name:  line_data[4],
+          address:  line_data[5]
+        }
+        @merchant = Merchant.create!(merchant_params)
+        product_params = {
+          description:  line_data[1],
+          price:  line_data[2].to_d,
+          merchant: @merchant
+        }
+        @product = Product.create!(product_params)
+        new_order_params = {
+          quantity:  line_data[3].to_i,
+          client:  line_data[0],
+          product: @product
+        }
+        @order = Order.create!(new_order_params)        
+      end
+      line_number += 1
+    end
 
     respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to orders_path}
+      format.json { render :show, status: :created, location: @order }
     end
   end
 
@@ -64,6 +84,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:client, :product_id, :quantity)
+      params.require(:order).permit(:file)
     end
 end
