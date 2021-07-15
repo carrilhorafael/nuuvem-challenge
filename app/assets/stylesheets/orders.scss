@@ -1,10 +1,18 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// GET /orders
 table{
     padding-top: 30px;
-    width: 100%
+    width: 100%;
+    tbody {
+        td {
+            text-align: center;
+        }
+    }
 }
+
 .table_header{
     font-size: 16px;
     color: #0066cc
@@ -32,9 +40,6 @@ table{
         background-color: #0066cc;
     }
 }
-tbody {
-    td {
-        text-align: center;
-    }
-    
-}
+
+// POST 
+
