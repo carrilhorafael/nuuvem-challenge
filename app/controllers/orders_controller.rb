@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to orders_path}
+      format.html { redirect_to orders_path, notice: "Orders created"}
       format.json { render :show, status: :created, location: @order }
     end
   end

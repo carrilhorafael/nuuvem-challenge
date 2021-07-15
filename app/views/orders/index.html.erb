@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders table</h1>
+<div class="div_title">
+  <h1>Orders table</h1>
+  <%= link_to '+', new_order_path, class: "add_link" %>
+</div>
+<strong> Total price: <%= sprintf('%.2f', Order.total_price)%> </strong> 
 
-<table>
+<table class="table_main">
   <thead>
-    <tr>
+    <tr class="table_header">
       <th>Client</th>
       <th>Merchant Name</th>
       <th>Merchant Address</th>
@@ -26,15 +30,10 @@
         <td>$ <%= sprintf('%.2f', order.product.price) %></td>
         <td><%= order.quantity %></td>
         <td>$ <%= sprintf('%.2f', order.order_price) %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-    <td> <strong> Total price: <%= sprintf('%.2f', Order.total_price)%> </strong> </td>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Order', new_order_path %>

@@ -6,14 +6,37 @@
 </p>
 
 <p>
-  <strong>Product:</strong>
-  <%= @order.product_id %>
+  <strong>Merchant name:</strong>
+  <%= @order.product.merchant.name %>
+</p>
+
+<p>
+  <strong>Merchant address:</strong>
+  <%= @order.product.merchant.address %>
+</p>
+
+<p>
+  <strong>Product description:</strong>
+  <%= @order.product.description %>
+</p>
+
+<p>
+  <strong>Product price:</strong>
+  <%= sprintf('%.2f', @order.product.price) %>
 </p>
 
 <p>
   <strong>Quantity:</strong>
   <%= @order.quantity %>
 </p>
+
+<p>
+  <strong>Order price:</strong>
+  <%= sprintf('%.2f', @order.order_price) %>
+</p>
+
+        
+
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
