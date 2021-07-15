@@ -1,0 +1,40 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+table{
+    padding-top: 30px;
+    width: 100%
+}
+.table_header{
+    font-size: 16px;
+    color: #0066cc
+}
+
+.div_title{
+    display: flex;
+    padding-bottom: 10px;
+    h1{
+        margin: 0;
+        font-size: 20px;
+        padding-right: 10px;
+    } 
+    .add_link{
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 50%;
+        background-color: #c6c6c6;
+    }
+    .add_link:hover{
+        background-color: #0066cc;
+    }
+}
+tbody {
+    td {
+        text-align: center;
+    }
+    
+}

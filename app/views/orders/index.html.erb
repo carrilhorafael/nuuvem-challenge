@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div class="div_title">
+  <h1>Orders table</h1>
+  <%= link_to '+', new_order_path, class: "add_link" %>
+</div>
+<strong> Total price: <%= sprintf('%.2f', Order.total_price)%> </strong> 
+
+<table class="table_main">
+  <thead>
+    <tr class="table_header">
+      <th>Client</th>
+      <th>Merchant Name</th>
+      <th>Merchant Address</th>
+      <th>Product Description</th>
+      <th>Product Price</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.client %></td>
+        <td><%= order.product.merchant.name %></td>
+        <td><%= order.product.merchant.address %></td>
+        <td><%= order.product.description %></td>
+        <td>$ <%= sprintf('%.2f', order.product.price) %></td>
+        <td><%= order.quantity %></td>
+        <td>$ <%= sprintf('%.2f', order.order_price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
