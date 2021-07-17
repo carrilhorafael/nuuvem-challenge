@@ -1,25 +1,24 @@
 # Nuuvem Dev Challenge
+## Sobre o teste
+É necessário gerar um projeto em Rails Full Stack capaz de gerenciar pedidos de restaurantes, utilizando, como entrada de informações arquivos de texto separados por tab.
 
-### Após baixar o projeto, utilize o comando abaixo para instalar as dependencias do projeto.
+## Documentação do projeto
+1. Após baixar o projeto, utilize o comando abaixo para instalar as dependencias do projeto e criar o banco de dados.
 ```bash
     bundle
-```
-
-### Feito isso, crie o banco de dados com os seguintes comandos.
-```bash
     rails db:migrate 
 ```
 
-### Os models do back end estão cobertos por testes usando a gem RSpec. Para rodar os testes criados, utilize o comando abaixo.
+2. Os models do back end estão cobertos por testes usando a gem RSpec. Para rodar os testes criados, utilize o comando abaixo.
 ```bash
     rspec 
 ```
 
-### Inicialize o projeto com o comando abaixo e entre em localhost:3000 ou 127.0.0.1:3000 
+3. Inicialize o projeto com o comando abaixo, e entre em localhost:3000 ou 127.0.0.1:3000 
 ```bash
     rails s
 ```
 
-### Clique no link para acessar a página de orders, clique no + para entrar no formulário de criação de orders e envie o arquivo .txt ou .tab.
+4. Clique no link para acessar a página de orders, clique no + para entrar no formulário de criação de novos pedidos e envie o arquivo .txt separado por tabs no formato que foi informado no escopo do projeto.
 
-### Verifique as orders criadas em /orders (orders_path)
+5. Verifique as orders criadas em /orders (orders_path)
