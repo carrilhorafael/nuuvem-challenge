@@ -10,7 +10,7 @@
     rails db:migrate 
 ```
 
-### O back end está coberto por testes usando a gem RSpec. Para rodar os testes criados, utilize o comando abaixo.
+### Os models do back end estão cobertos por testes usando a gem RSpec. Para rodar os testes criados, utilize o comando abaixo.
 ```bash
     rspec 
 ```
